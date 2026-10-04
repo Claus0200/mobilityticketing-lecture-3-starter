@@ -47,7 +47,6 @@ after insert on payments
 for each row
 execute function add_inserted_payment_to_daily_revenue();
 
--- Seeded payments existed before the trigger, so backfill the summary once.
 insert into daily_revenue_by_operator (
     operator_id, revenue_date, captured_amount, captured_payments
 )
